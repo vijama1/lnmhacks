@@ -1,14 +1,14 @@
 ---
 - hosts: docker-nn
   tasks:
-   - name: copy hdfs-site 
+   - name: copy hdfs-site
      copy:
-        src: /root/docker_hv1/hdfs-site-nn.xml
+        src: /home/ezioauditore/Desktop/projects/lnmhacks/source_files/docker_hv1/hdfs-site-nn.xml
         dest: /etc/hadoop/hdfs-site.xml
 
-   - name: copy core-site 
+   - name: copy core-site
      copy:
-        src: /root/docker_hv1/core-site.xml
+        src: /home/ezioauditore/Desktop/projects/lnmhacks/source_files/docker_hv1/core-site.xml
         dest: /etc/hadoop/core-site.xml
 
    - name: format namenode
@@ -19,15 +19,15 @@
 
 - hosts: docker-dn
   tasks:
-   - name: copy hdfs-site 
+   - name: copy hdfs-site
      copy:
-        src: /root/docker_hv1/hdfs-site-dn.xml
+        src: /home/ezioauditore/Desktop/projects/lnmhacks/source_files/docker_hv1/hdfs-site-dn.xml
         dest: /etc/hadoop/hdfs-site.xml
 
-   - name: copy core-site 
+   - name: copy core-site
      copy:
-        src: /root/docker_hv1/core-site.xml
+        src: /home/ezioauditore/Desktop/projects/lnmhacks/source_files/docker_hv1/core-site.xml
         dest: /etc/hadoop/core-site.xml
 
    - name: starting datanode
-     shell: iptables -F ; hadoop-daemon.sh start datanode	
+     shell: iptables -F ; hadoop-daemon.sh start datanode
