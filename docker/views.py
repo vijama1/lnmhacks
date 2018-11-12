@@ -10,8 +10,13 @@ from django.core.urlresolvers import reverse
 import mysql.connector as pysql
 import subprocess as sb
 import sys,os,time
+from gtts import gTTS
 
 def version (request):
+	opening_text="Hadoop1 or Hadoop2, tell me your need"
+	opening_voice=gTTS(text=opening_text,lang='en',slow=False)
+	opening_voice.save("cluster.mp3")
+	os.system("mpg321 cluster.mp3")
 	return render (request, 'version-docker.html')
 
 def hadoopv1 (request):
