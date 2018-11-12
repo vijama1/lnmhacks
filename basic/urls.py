@@ -14,11 +14,19 @@ urlpatterns = [
     url(r'^postsignup/$', views.postsignup, name='postsignup'),
     url(r'^postsignin/$', views.postsignin, name='postsignin'),
     url(r'^dashboard/$', views.dashboard, name='dashboard'),
+<<<<<<< HEAD
+=======
+    # url(r'^dashboard1/$', views.dashboard1, name='dashboard1'),
+>>>>>>> aman
     url(r'^service_status/$', views.service_status, name='service_status'),
     url(r'^about/$', views.about, name='about'),
     url(r'^settings/$', views.settings, name='settings'),
     url(r'^create/$', views.create, name='create'),
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> aman
     # Dashboard
 
 

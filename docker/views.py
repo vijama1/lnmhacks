@@ -10,8 +10,18 @@ from django.core.urlresolvers import reverse
 import mysql.connector as pysql
 import subprocess as sb
 import sys,os,time
+<<<<<<< HEAD
 
 def version (request):
+=======
+from gtts import gTTS
+
+def version (request):
+	opening_text="Hadoop1 or Hadoop2, tell me your need"
+	opening_voice=gTTS(text=opening_text,lang='en',slow=False)
+	opening_voice.save("cluster.mp3")
+	os.system("mpg321 cluster.mp3")
+>>>>>>> aman
 	return render (request, 'version-docker.html')
 
 def hadoopv1 (request):
@@ -87,7 +97,11 @@ def posthadoopv1 (request):
 				fhand.write('\n[docker-tt]\n')
 				fhand.write(ip+'\n')
 				container_type.append('tasktracker')
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> aman
 		index_value.append(i)
 		service_status.append('Running')
 	fhand.close()
@@ -103,6 +117,7 @@ def hv1_playbook (request):
 	service_type = request.session.get('service_type')
 	print ('ansible playbook is running...')
 	if ( service_type == 'nn_dn' ):
+<<<<<<< HEAD
 		os.system('sudo ansible-playbook /root/Hadoop-Project/docker/playbooks/onlynndn.yml')
 	elif ( service_type == 'nnjt_dntt' ):
 		os.system('sudo ansible-playbook /root/Hadoop-Project/docker/playbooks/nnjt_dntt.yml')
@@ -110,6 +125,15 @@ def hv1_playbook (request):
 		os.system('sudo ansible-playbook /root/Hadoop-Project/docker/playbooks/nn_jt_dntt.yml')
 	else:
 		os.system('sudo ansible-playbook /root/Hadoop-Project/docker/playbooks/nn_jt_dn_tt.yml')
+=======
+		os.system('sudo ansible-playbook /home/ezioauditore/Desktop/projects/lnmhacks/docker/playbooks/onlynndn.yml')
+	elif ( service_type == 'nnjt_dntt' ):
+		os.system('sudo ansible-playbook /home/ezioauditore/Desktop/projects/lnmhacks/docker/playbooks/nnjt_dntt.yml')
+	elif ( service_type == 'nn_jt_dntt' ):
+		os.system('sudo ansible-playbook /home/ezioauditore/Desktop/projects/lnmhacks/docker/playbooks/nn_jt_dntt.yml')
+	else:
+		os.system('sudo ansible-playbook /home/ezioauditore/Desktop/projects/lnmhacks/docker/playbooks/nn_jt_dn_tt.yml')
+>>>>>>> aman
 	print("Cleaning hosts")
 	open('/etc/ansible/hosts', 'w').close()
 	return HttpResponse(status=201)
@@ -209,7 +233,11 @@ def hv2_playbook (request):
 		os.system('sudo ansible-playbook /root/Hadoop-Project/docker/playbooks/nn_rm_dnnm.yml')
 	else:
 		os.system('sudo ansible-playbook /root/Hadoop-Project/docker/playbooks/nn_rm_dn_nm.yml')
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> aman
 	open('/etc/ansible/hosts', 'w').close()
 	return HttpResponse(status=201)
 
@@ -227,4 +255,8 @@ def clear_cluster (request):
 	request.session['container_type'] = None
 	request.session['index_value'] = None
 	request.session['service_status'] = None
+<<<<<<< HEAD
 	return redirect ('/dashboard/')
+=======
+	return redirect ('/dashboard/')
+>>>>>>> aman
